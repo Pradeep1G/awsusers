@@ -9,7 +9,7 @@ function App() {
   const [loading, setloading] = useState(false)
   const [email, setEmail] = useState("");
   const [place, setPlace] = useState("");
-  const serverpath = "https://servetasker.onrender.com";
+  const serverpath = "https://awsserver.onrender.com";
   // const serverpath = "http://127.0.0.1:5000";
   
 
