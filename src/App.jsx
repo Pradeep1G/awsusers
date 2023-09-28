@@ -8,6 +8,8 @@ function App() {
   const [count, setCount] = useState(0)
   const [email, setEmail] = useState("");
   const [place, setPlace] = useState("");
+  const serverpath = "https://servetasker.onrender.com";
+  // const serverpath = "http://127.0.0.1:5000";
 
   const submit = async(e) =>{
     e.preventDefault()
@@ -16,7 +18,7 @@ function App() {
       email:email,
       place:place
     }
-    const response = await axios.put("https://awsserver.onrender.com/addUser", data)
+    const response = await axios.put(serverpath+"/addAWSWeatherUser", data)
     console.warn(response.data)
     if(response.data.is_success){
       alert("Successful.")
