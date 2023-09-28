@@ -21,7 +21,7 @@ function App() {
       place:place
     }
     setloading(true);
-    const response = await axios.put(serverpath+"/addAWSWeatherUser", data)
+    const response = await axios.put(serverpath+"/addUser", data)
     console.warn(response.data)
     if(response.data.is_success){
     setloading(false)
