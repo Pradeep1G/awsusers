@@ -16,7 +16,7 @@ function App() {
       email:email,
       place:place
     }
-    const response = await axios.put("http://127.0.0.1:5000/addUser", data)
+    const response = await axios.put("https://awsserver.onrender.com/addUser", data)
     console.warn(response.data)
     if(response.data.is_success){
       alert("Successful.")
@@ -54,7 +54,7 @@ function App() {
 
 
       <div className='flex justify-center'>
-        <button className='text-lg font-semibold p-4 rounded-md bg-blue-400'>
+        <button className='text-lg font-semibold p-4 text-black rounded-md bg-blue-400'>
         Submit
         </button>
         </div>
