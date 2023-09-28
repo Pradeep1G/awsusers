@@ -1,15 +1,17 @@
 import { useState } from 'react'
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
-// import './App.css'
+import './index.css'
+import LoadingScreen from './Loader'
 import axios from 'axios'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [loading, setloading] = useState(false)
   const [email, setEmail] = useState("");
   const [place, setPlace] = useState("");
   const serverpath = "https://servetasker.onrender.com";
   // const serverpath = "http://127.0.0.1:5000";
+  
 
   const submit = async(e) =>{
     e.preventDefault()
@@ -18,20 +20,27 @@ function App() {
       email:email,
       place:place
     }
+    setloading(true);
     const response = await axios.put(serverpath+"/addAWSWeatherUser", data)
     console.warn(response.data)
     if(response.data.is_success){
+    setloading(false)
+
       alert("Successful.")
     }
     else{
+    setloading(false)
+
       alert("Retry with correct input.")
     }
+    setloading(false)
 
   }
 
   return (
     <>
-    <div className=''>
+    {loading && <LoadingScreen />}
+    <div className='staticbody'>
       <div className='p-2'>
       <form onSubmit={submit} className=''>
 
